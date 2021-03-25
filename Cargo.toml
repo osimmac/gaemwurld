@@ -1,0 +1,63 @@
+[package]
+name = "myown"
+version = "0.1.0"
+authors = ["mac"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+generational-arena = { version = "0.2", features = ["serde"] }
+
+
+#rendering
+#pixels = "0.2"
+image = "0.23"
+wgpu = "0.6.2"
+
+#gui stuff
+#imgui = "0.6"
+#imgui-wgpu = "0.12"
+#imgui-winit-support = "0.6"
+
+#window / event manager
+winit = "0.24"
+
+
+
+#gamestuff
+#legion = "0.3.1"
+futures = "0.3"
+cgmath = "0.17"
+
+
+#debugging
+#pretty profiler
+#puffin = "0.3"
+#puffin-imgui = "0.5"
+log = "0.4"
+env_logger = "0.7"
+anyhow = "1.0"
+
+#shaderc = "0.6"
+bytemuck = { version = "1.4", features = [ "derive" ] }
+
+[build-dependencies]
+anyhow = "1.0"
+fs_extra = "1.1"
+glob = "0.3"
+shaderc = "0.6"
+
+
+
+
+[profile.dev]
+opt-level = 1
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = false
+
+opt-level = 3
